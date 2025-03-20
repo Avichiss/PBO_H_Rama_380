@@ -37,7 +37,8 @@ class PemainGame{
 
     @Override
     public void serang(PemainGame target) {
-
+        System.out.println(getNama() + " menyerang" + target.getNama() + " menggunakan bijudama");
+        target.setKesehatan(target.getKesehatan() - 20);
         super.serang(target);
     }
 }
@@ -50,7 +51,8 @@ class Musuh extends PemainGame{
 
     @Override
     public void serang(PemainGame target) {
-
+        System.out.println(getNama() + " menyerang" + target.getNama() + " menggunakan domain kegelapan");
+        target.setKesehatan(target.getKesehatan() - 15);
         super.serang(target);
     }
 }
@@ -59,11 +61,16 @@ class Musuh extends PemainGame{
 
 public class codelab {
     public static void main(String[] args) {
+    PemainGame pemainGame = new PemainGame("Karakter umum", 100 );
     Pahlawan pahlawan = new Pahlawan("Slankman", 150);
     Musuh musuh = new Musuh("LordGrim", 200);
 
         System.out.println("Status Awal :");
-        System.out.println(pahlawan.getNama() + "memiliki kesehatan :" + pahlawan.getKesehatan());
-        System.out.println(musuh.getKesehatan() + "memiliki kesehatan" + musuh.getKesehatan());
+        System.out.println(pahlawan.getNama() + " memiliki kesehatan : " + pahlawan.getKesehatan());
+        System.out.println(musuh.getNama() + " memiliki kesehatan : " + musuh.getKesehatan());
+        pahlawan.serang(musuh);
+        System.out.println(musuh.getNama() + " sekarang memiliki kesehatan" + musuh.getKesehatan());
+        musuh.serang(pahlawan);
+        System.out.println(pahlawan.getNama() + " sekarang memiliki kesehatan" + pahlawan.getKesehatan());
     }
 }
