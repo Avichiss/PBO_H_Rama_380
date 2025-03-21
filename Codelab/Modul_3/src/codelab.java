@@ -24,9 +24,9 @@ class PemainGame{
     }
 
     public void serang(PemainGame target){
-
+        System.out.println(getNama() + " menyerang " + target.getNama() + " menggunakan shoot thunder");
+        target.setKesehatan(target.getKesehatan() - 100);
     }
-
 }
 
  class Pahlawan extends PemainGame{
@@ -37,10 +37,10 @@ class PemainGame{
 
     @Override
     public void serang(PemainGame target) {
-        System.out.println(getNama() + " menyerang" + target.getNama() + " menggunakan bijudama");
+        System.out.println(getNama() + " menyerang " + target.getNama() + " menggunakan bijudama");
         target.setKesehatan(target.getKesehatan() - 20);
-        super.serang(target);
     }
+
 }
 
 class Musuh extends PemainGame{
@@ -51,26 +51,30 @@ class Musuh extends PemainGame{
 
     @Override
     public void serang(PemainGame target) {
-        System.out.println(getNama() + " menyerang" + target.getNama() + " menggunakan domain kegelapan");
+        System.out.println(getNama() + " menyerang " + target.getNama() + " menggunakan domain kegelapan");
         target.setKesehatan(target.getKesehatan() - 15);
-        super.serang(target);
     }
 }
-
 
 
 public class codelab {
     public static void main(String[] args) {
-    PemainGame pemainGame = new PemainGame("Karakter umum", 100 );
-    Pahlawan pahlawan = new Pahlawan("Slankman", 150);
+    PemainGame pemaingame = new PemainGame("Ronaldo", 100 );
+    Pahlawan pahlawan1 = new Pahlawan("Slankman", 150);
+    Pahlawan pahlawan2 = new Pahlawan("Solomon", 500);
     Musuh musuh = new Musuh("LordGrim", 200);
 
+
         System.out.println("Status Awal :");
-        System.out.println(pahlawan.getNama() + " memiliki kesehatan : " + pahlawan.getKesehatan());
+        System.out.println(pemaingame.getNama() + " memiliki kesehatan : " + pemaingame.getKesehatan());
+        System.out.println(pahlawan1.getNama() + " memiliki kesehatan : " + pahlawan1.getKesehatan());
         System.out.println(musuh.getNama() + " memiliki kesehatan : " + musuh.getKesehatan());
-        pahlawan.serang(musuh);
+        pahlawan1.serang(musuh);
+        pahlawan2.serang(musuh);
+        pemaingame.serang(musuh);
         System.out.println(musuh.getNama() + " sekarang memiliki kesehatan" + musuh.getKesehatan());
-        musuh.serang(pahlawan);
-        System.out.println(pahlawan.getNama() + " sekarang memiliki kesehatan" + pahlawan.getKesehatan());
+        musuh.serang(pahlawan1);
+        System.out.println(pahlawan1.getNama() + " sekarang memiliki kesehatan" + pahlawan1.getKesehatan());
+        }
+
     }
-}
