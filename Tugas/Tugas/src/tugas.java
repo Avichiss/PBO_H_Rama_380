@@ -39,8 +39,8 @@ class Admin extends User {
     private String username = "Admin380";
     private String password = "password380";
 
-    public Admin() {
-        super("Admin", "380");
+    public Admin(String nama, String nim) {
+        super(nama, nim);
     }
 
     @Override
@@ -55,20 +55,20 @@ class Admin extends User {
 
     @Override
     void displayInfo() {
-        System.out.println("Nama: " + getNama());
-        System.out.println("NIM : " + getNim());
+        System.out.println("Nama: " + super.getNama());
+        System.out.println("NIM : " + super.getNim());
         System.out.println("Login sukses!");
     }
 }
 
 class Mahasiswa extends User {
-    public Mahasiswa() {
-        super("Ramanda Bagus Prabowo", "202410370110380");
+    public Mahasiswa(String nama, String nim) {
+        super(nama, nim);
     }
 
     @Override
     public void login(String inputNama, String inputNim) {
-        if (inputNama.equalsIgnoreCase(getNama()) && inputNim.equals(getNim())) {
+        if (inputNama.equals(getNama()) && inputNim.equals(getNim())) {
             System.out.println("Login Mahasiswa berhasil!");
             displayInfo();
         } else {
@@ -86,8 +86,8 @@ class Mahasiswa extends User {
 public class tugas {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Admin admin = new Admin();
-        Mahasiswa siswa = new Mahasiswa();
+        Admin admin = new Admin("Admin380", "password380");
+        Mahasiswa siswa = new Mahasiswa("Ramanda Bagus Prabowo", "202410370110380");
 
     while (true) {
         System.out.println("Pilih login:");
