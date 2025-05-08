@@ -15,7 +15,7 @@ public class Anggota implements Peminjaman {
     }
 
     public void pinjamBuku(String judul, int durasi) {
-        System.out.println(nama + " meminjam buku " + judul + " selama " + durasi + " hari.");
+        System.out.println(nama + " meminjam buku: " + judul + " selama " + durasi + " hari.");
     }
 
     @Override

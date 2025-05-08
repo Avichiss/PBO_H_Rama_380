@@ -9,5 +9,5 @@ public abstract class Buku {
        this.penulis = penulis;
     }
 
-    public  abstract  void displayinfo();
+    public abstract void displayinfo();
  }
