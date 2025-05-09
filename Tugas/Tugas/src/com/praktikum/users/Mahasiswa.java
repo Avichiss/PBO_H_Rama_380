@@ -63,13 +63,15 @@ public class Mahasiswa extends User implements MahasiswaActions {
         System.out.print("Lokasi terakhir ditemukan: ");
         String lokasiTerakhir = scan.nextLine();
 
-        System.out.println("\n|--------------------------------|");
-        System.out.println("|       LAPORAN BARANG           |");
-        System.out.println("|--------------------------------|");
-        System.out.printf("| Nama Barang   :                |\n", namaBarang);
-        System.out.printf("| Deskripsi     :                |\n", deskripsiBarang);
-        System.out.printf("| Lokasi Terakhir:               |\n", lokasiTerakhir);
-        System.out.println("|--------------------------------|");
+        System.out.println("\n|-------------------------------|");
+        System.out.println("|       LAPORAN BARANG          |");
+        System.out.println("|-------------------------------|");
+        System.out.println("| Nama Barang   :" + namaBarang +"\t\t\t\t|");
+        System.out.println("|-------------------------------|");
+        System.out.println("| Deskripsi     :"  + deskripsiBarang +"\t\t\t\t|");
+        System.out.println("|-------------------------------|");
+        System.out.println("| Lokasi Terakhir:" + lokasiTerakhir +"\t\t\t\t|");
+        System.out.println("|-------------------------------|");
     }
 
     @Override
