@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d13786e5-9529-4bea-af7f-dbc76c09aed1" name="Changes" comment="" />
+    <list default="true" id="d13786e5-9529-4bea-af7f-dbc76c09aed1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Codelab/Modul_5/src/ManajamenStok.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Codelab/Modul_5/src/ManajamenStok.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/praktikum/actions/MahasiswaActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/praktikum/actions/MahasiswaActions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/praktikum/main/LoginSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/praktikum/main/LoginSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/praktikum/users/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/praktikum/users/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/praktikum/users/Mahasiswa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/praktikum/users/Mahasiswa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/praktikum/users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/praktikum/users/User.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,8 +21,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="Exception" />
       </list>
     </option>
   </component>

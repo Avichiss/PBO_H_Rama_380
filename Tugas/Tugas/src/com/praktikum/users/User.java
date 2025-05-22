@@ -25,7 +25,6 @@ public abstract class User {
         return nim;
     }
 
-    abstract public void login(String username, String pass);
-    abstract public void displayInfo();
-    abstract void displayAppMenu();
+    public abstract void displayInfo();
+    public abstract void displayAppMenu();
 }

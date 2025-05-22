@@ -1,43 +1,64 @@
 package com.praktikum.main;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+import com.praktikum.error.LoginException;
+import com.praktikum.data.Item;
 import com.praktikum.users.Admin;
 import com.praktikum.users.Mahasiswa;
 import com.praktikum.users.User;
 
 public class LoginSystem {
+    public static List<User> userList = new ArrayList<>();
+    public static List<Item> reportedItems = new ArrayList<>();
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        User admin = new Admin("Admin380","Password380");
-        User siswa = new Mahasiswa("Ramanda Bagus Prabowo","202410370110380");
+    userList.add(new Admin("Admin380", "Password380"));
+    userList.add(new Mahasiswa("Ramanda Bagus Prabowo", "202410370110380"));
 
-        while (true) {
-            System.out.println("Pilih login:");
-            System.out.println("1. Admin\n2. Mahasiswa\n3. Keluar");
-            System.out.print("Masukkan pilihan:");
-            String pilihan = scanner.nextLine();
+    Scanner scanner = new Scanner(System.in);
+    User loggedInUser = null;
 
-            if (pilihan.equals("1")) {
-                System.out.print("Masukkan username:");
-                String user = scanner.nextLine();
-                System.out.print("Masukkan password:");
-                String pass = scanner.nextLine();
-                admin.login(user, pass);
+        System.out.println("========== System Login ==========");
+        while (loggedInUser == null) {
+            System.out.print("Masukkan username/nama: ");
+            String username = scanner.nextLine();
+            System.out.print("Masukkan password/NIM: ");
+            String password = scanner.nextLine();
 
-            } else if (pilihan.equals("2")) {
-                System.out.print("Masukkan Nama:");
-                String nama = scanner.nextLine();
-                System.out.print("Masukkan NIM:");
-                String nim = scanner.nextLine();
-                siswa.login(nama, nim);
-            } else if (pilihan.equals("3")) {
-                System.out.println("Terimakasih! Program selesai.");
-                break;
-            } else {
-                System.out.println("Pilihan tidak valid.");
+            try {
+                loggedInUser = doLogin(username, password);
+
+                if (loggedInUser == null) {
+                    throw new LoginException("\nUser not found!");
+                }
+
+                System.out.println("Login berhasil!");
+
+                loggedInUser.displayInfo();
+                loggedInUser.displayAppMenu();
+            } catch (LoginException e) {
+                System.out.println("ERROR: " + e.getMessage());
+                System.out.println("Silakan coba lagi.\n");
             }
         }
 
         scanner.close();
+    }
+
+    public static User doLogin(String userInput, String passInput) {
+        for (User u : userList) {
+            if (u instanceof Admin admin) {
+                if (admin.getUsername().equals(userInput) && admin.getPassword().equals(passInput)) {
+                    return admin;
+                }
+            } else if (u instanceof Mahasiswa mhs) {
+                if (mhs.getNama().equals(userInput) && mhs.getNim().equals(passInput)) {
+                    return mhs;
+                }
+            }
+        }
+        return null;
     }
 }

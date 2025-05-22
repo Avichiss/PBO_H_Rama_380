@@ -1,24 +1,17 @@
 package com.praktikum.users;
 
-import java.util.Scanner;
 import com.praktikum.actions.*;
+import com.praktikum.data.Item;
+import com.praktikum.main.LoginSystem;
+import java.util.InputMismatchException;
+import java.util.Iterator;
+import java.util.Scanner;
 
 public class Mahasiswa extends User implements MahasiswaActions {
     Scanner scan = new Scanner(System.in);
 
     public Mahasiswa(String nama, String nim) {
         super(nama, nim);
-    }
-
-    @Override
-    public void login(String inputNama, String inputNim) {
-        if (inputNama.trim().equals(getNama()) && inputNim.trim().equals(getNim())) {
-            System.out.println("Login Mahasiswa berhasil!");
-            displayInfo();
-            displayAppMenu();
-        } else {
-            System.out.println("Login gagal! Nama atau NIM salah.");
-        }
     }
 
     @Override
@@ -29,30 +22,44 @@ public class Mahasiswa extends User implements MahasiswaActions {
 
     @Override
     public void displayAppMenu() {
-        while (true) {
+        boolean loop = true;
+
+        while (loop) {
             System.out.println("|=================================|");
             System.out.println("|          MENU MAHASISWA         |");
             System.out.println("|=================================|");
-            System.out.println("| 1.Laporkan Barang Hilang        |");
-            System.out.println("| 2.Lihat Daftar Laporan          |");
-            System.out.println("| 0.Logout                        |");
+            System.out.println("| 1. Laporkan Barang Hilang       |");
+            System.out.println("| 2. Lihat Daftar Laporan         |");
+            System.out.println("| 0. Keluar                       |");
             System.out.println("|=================================|");
-
-            System.out.print("========   Pilih Menu:  =======\n");
-            int pilihan = scan.nextInt();
-            scan.nextLine();
-
-            if (pilihan == 1) {
-                reportItem();
-            } else if (pilihan == 2) {
-                viewReportedItems();
-            } else if (pilihan == 0) {
-                break;
-            } else {
-                System.err.println("Pilihan Tidak Valid");
+            int pilih;
+            try {
+                System.out.print("========   Pilih Menu:  =======\n");
+                pilih = scan.nextInt();
+                scan.nextLine();
+            } catch (InputMismatchException e) {
+                System.err.println("Input Harus Berupa Angka!!!");
+                scan.nextLine();
+                continue;
+            }
+            switch (pilih) {
+                case 1:
+                    reportItem();
+                    break;
+                case 2:
+                    viewReportedItems();
+                    break;
+                case 0:
+                    loop = false;
+                    LoginSystem.main(null);
+                    break;
+                default:
+                    System.err.println("Pilihan Tidak Valid!!!");
+                    break;
             }
         }
     }
+
 
     @Override
     public void reportItem() {
@@ -62,6 +69,8 @@ public class Mahasiswa extends User implements MahasiswaActions {
         String deskripsiBarang = scan.nextLine();
         System.out.print("Lokasi terakhir ditemukan: ");
         String lokasiTerakhir = scan.nextLine();
+
+        LoginSystem.reportedItems.add(new Item(namaBarang, deskripsiBarang, lokasiTerakhir));
 
         System.out.println("\n|-------------------------------|");
         System.out.println("|       LAPORAN BARANG          |");
@@ -76,6 +85,25 @@ public class Mahasiswa extends User implements MahasiswaActions {
 
     @Override
     public void viewReportedItems() {
-        System.err.println("\n>> Fitur Lihat Laporan Belum Tersedia <<");
+        Iterator<Item> iterator = LoginSystem.reportedItems.iterator();
+        int index = 1;
+        boolean lapor = true;
+
+        while (iterator.hasNext()) {
+            Item barang = iterator.next();
+            System.out.println("Cek Status Barang: '" + barang.getStatus() + "'");
+            if (barang.getStatus().equals("Reported")) {
+                if (lapor) {
+                    System.out.println("Laporan ke-" + index++);
+                    System.out.println("Nama Barang   : " + barang.getItemName());
+                    System.out.println("Deskripsi     : " + barang.getDescription());
+                    System.out.println("Lokasi        : " + barang.getLocation());
+                    lapor = false;
+                }
+            }
+        }
+        if (lapor) {
+            System.out.println("Tidak ada barang berstatus 'Reported'.");
+        }
     }
 }

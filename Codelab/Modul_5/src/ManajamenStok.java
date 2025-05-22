@@ -14,12 +14,12 @@ public class ManajamenStok {
 
         boolean running = true;
         while (running) {
-            System.out.println("#Menu Manajamen Stok Makanan#");
+            System.out.println("===== Menu Manajamen Stok =====");
             System.out.println("1. Tambah Barang Baru");
             System.out.println("2. Tampilkan Semua Barang");
             System.out.println("3. Kurangi Stok Barang");
             System.out.println("0. Keluar");
-            System.out.print("Pilih menu: ");
+            System.out.print("Pilih opsi: ");
 
             int pilih = scan.nextInt();
             scan.nextLine();
@@ -34,9 +34,9 @@ public class ManajamenStok {
                         int stok = scan.nextInt();
                         scan.nextLine();
                         daftarBarang.add(new Barang(nama, stok));
-                        System.out.println("Barang berhasil ditambahkan.");
+                        System.out.println("Barang " + nama + " berhasil ditambahkan.");
                     } catch (InputMismatchException e) {
-                        System.out.println("Input stok harus berupa angka!");
+                        System.err.println("Input stok harus berupa angka!");
                         scan.nextLine();
                     }
                     break;
@@ -45,11 +45,12 @@ public class ManajamenStok {
                     if (daftarBarang.isEmpty()) {
                         System.out.println("Stok barang kosong.");
                     } else {
-                        System.out.println("\nDaftar Barang:");
+                        System.out.println("\n------- Daftar Barang ------");
                         Iterator<Barang> iterator = daftarBarang.iterator();
                         while (iterator.hasNext()) {
                             Barang barang = iterator.next();
-                            System.out.println("- " + barang.getNama() + " (Stok: " + barang.getStok() + ")");
+                            System.out.println("Nama: " + barang.getNama() + " (Stok: " + barang.getStok() + ")");
+                            System.out.println("----------------------------");
                         }
                     }
                     break;
@@ -61,14 +62,14 @@ public class ManajamenStok {
                             break;
                         }
 
-                        System.out.println("Pilih barang yang ingin dikurangi:");
+                        System.out.println("--- Daftar Barang ( Pilih untuk Kurangi Stok ) ---");
                         for (int i = 0; i < daftarBarang.size(); i++) {
                             System.out.println(i + ". " + daftarBarang.get(i).getNama() + " (Stok: " + daftarBarang.get(i).getStok() + ")");
                         }
 
-                        System.out.print("Masukkan indeks barang: ");
+                        System.out.print("Masukkan nomor indeks barang: ");
                         int indeks = scan.nextInt();
-                        System.out.print("Masukkan jumlah yang ingin dikurangi: ");
+                        System.out.print("Masukkan jumlah stok yang akan diambil: ");
                         int jumlah = scan.nextInt();
                         scan.nextLine();
 
@@ -77,19 +78,19 @@ public class ManajamenStok {
                             throw new StokTidakCukupException("Stok untuk " + barangDipilih.getNama() + " hanya tersisa " + barangDipilih.getStok());
                         }
                         barangDipilih.setStok(barangDipilih.getStok() - jumlah);
-                        System.out.println("Stok berhasil dikurangi.");
+                        System.out.println("Stok barang " + barangDipilih.getNama() + " berhasil dikurangi." + "Sisa stok: " + barangDipilih.getStok());
                     } catch (IndexOutOfBoundsException e) {
-                        System.out.println("Indeks tidak valid.");
+                        System.err.println("Indeks tidak valid.");
                     } catch (StokTidakCukupException e) {
-                        System.out.println("Error: " + e.getMessage());
+                        System.err.println("Error: " + e.getMessage());
                     } catch (InputMismatchException e) {
-                        System.out.println("Input harus berupa angka!");
+                        System.err.println("Input harus berupa angka!");
                         scan.nextLine();
                     }
                     break;
 
                 case 0:
-                    System.out.println("Terima kasih!");
+                    System.out.println("Terima kasih! Program berakhir.");
                     scan.close();
                     running = false;
                     break;
