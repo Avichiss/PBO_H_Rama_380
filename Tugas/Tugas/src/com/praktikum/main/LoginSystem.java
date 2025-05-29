@@ -22,9 +22,9 @@ public class LoginSystem {
 
         System.out.println("========== System Login ==========");
         while (loggedInUser == null) {
-            System.out.print("Masukkan username/nama: ");
+            System.out.print("Masukkan Username/Nama : ");
             String username = scanner.nextLine();
-            System.out.print("Masukkan password/NIM: ");
+            System.out.print("Masukkan Password/NIM : ");
             String password = scanner.nextLine();
 
             try {
@@ -39,8 +39,8 @@ public class LoginSystem {
                 loggedInUser.displayInfo();
                 loggedInUser.displayAppMenu();
             } catch (LoginException e) {
-                System.out.println("ERROR: " + e.getMessage());
-                System.out.println("Silakan coba lagi.\n");
+                System.err.println(e.getMessage());
+                System.err.println("Silakan coba lagi.");
             }
         }
 

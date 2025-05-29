@@ -177,15 +177,14 @@ public class Admin extends User implements AdminActions {
                     int index = 0;
                     boolean adaReported = false;
 
-                    System.out.println("NO\tNAMA\t\t\tDESKRIPSI\t\t\t\tLOKASI\t\t\t\tSTATUS");
                     while (iterator.hasNext()) {
                         Item barang = LoginSystem.reportedItems.get(index);
                         if ("Reported".equalsIgnoreCase(barang.getStatus())) {
-                            System.out.println(index + "\t"
-                                    + barang.getItemName() + "\t\t"
-                                    + barang.getDescription() + "\t\t"
-                                    + barang.getLocation() + "\t\t"
-                                    + barang.getStatus());
+                            System.out.println("NO: " + index + "\t"
+                                    + " \nNAMA: " + barang.getItemName() + "\t\t"
+                                    + " \nDESKRIPSI: " + barang.getDescription() + "\t\t"
+                                    + " \nLOKASI: " + barang.getLocation() + "\t\t"
+                                    + " \nSTATUS: " + barang.getStatus());
                             adaReported = true;
                         }
                         index++;
@@ -198,6 +197,7 @@ public class Admin extends User implements AdminActions {
                     }
 
                     try {
+                        System.out.println("================================================");
                         System.out.print("Masukkan nomor indeks barang yang ingin ditandai: ");
                         int inputIndex = scan.nextInt();
                         scan.nextLine();

@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d13786e5-9529-4bea-af7f-dbc76c09aed1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Codelab/Modul_5/src/ManajamenStok.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Codelab/Modul_5/src/ManajamenStok.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/praktikum/actions/MahasiswaActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/praktikum/actions/MahasiswaActions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/praktikum/main/LoginSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/praktikum/main/LoginSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/praktikum/users/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/praktikum/users/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/praktikum/users/Mahasiswa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/praktikum/users/Mahasiswa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/praktikum/users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/praktikum/users/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,16 +36,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.LoginSystem.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Ramanda Bagus P/OneDrive/Documents/Tugas/Tugas/src/Main.java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.LoginSystem.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Ramanda Bagus P/OneDrive/Documents/Tugas/Tugas",
+    "onboarding.tips.debug.path": "C:/Users/Ramanda Bagus P/OneDrive/Documents/Tugas/Tugas/src/Main.java"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

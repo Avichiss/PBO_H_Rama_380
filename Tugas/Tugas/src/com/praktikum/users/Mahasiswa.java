@@ -75,11 +75,11 @@ public class Mahasiswa extends User implements MahasiswaActions {
         System.out.println("\n|-------------------------------|");
         System.out.println("|       LAPORAN BARANG          |");
         System.out.println("|-------------------------------|");
-        System.out.println("| Nama Barang   :" + namaBarang +"\t\t\t\t|");
+        System.out.println(" Nama Barang   :" + namaBarang);
         System.out.println("|-------------------------------|");
-        System.out.println("| Deskripsi     :"  + deskripsiBarang +"\t\t\t\t|");
+        System.out.println(" Deskripsi     :" + deskripsiBarang);
         System.out.println("|-------------------------------|");
-        System.out.println("| Lokasi Terakhir:" + lokasiTerakhir +"\t\t\t\t|");
+        System.out.println(" Lokasi Terakhir:" + lokasiTerakhir);
         System.out.println("|-------------------------------|");
     }
 
@@ -87,22 +87,22 @@ public class Mahasiswa extends User implements MahasiswaActions {
     public void viewReportedItems() {
         Iterator<Item> iterator = LoginSystem.reportedItems.iterator();
         int index = 1;
-        boolean lapor = true;
+        boolean adaLaporan = false;
 
         while (iterator.hasNext()) {
             Item barang = iterator.next();
             System.out.println("Cek Status Barang: '" + barang.getStatus() + "'");
             if (barang.getStatus().equals("Reported")) {
-                if (lapor) {
-                    System.out.println("Laporan ke-" + index++);
-                    System.out.println("Nama Barang   : " + barang.getItemName());
-                    System.out.println("Deskripsi     : " + barang.getDescription());
-                    System.out.println("Lokasi        : " + barang.getLocation());
-                    lapor = false;
-                }
+                System.out.println("Laporan ke-" + index++);
+                System.out.println("Nama Barang   : " + barang.getItemName());
+                System.out.println("Deskripsi     : " + barang.getDescription());
+                System.out.println("Lokasi        : " + barang.getLocation());
+                System.out.println("---------------------------------");
+                adaLaporan = true;
             }
         }
-        if (lapor) {
+
+        if (!adaLaporan) {
             System.out.println("Tidak ada barang berstatus 'Reported'.");
         }
     }
