@@ -25,6 +25,7 @@ public abstract class User {
         return nim;
     }
 
-    public abstract void displayInfo();
+    public abstract void displayInfo(String nama, String nim);
+
     public abstract void displayAppMenu();
 }

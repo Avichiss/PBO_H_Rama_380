@@ -1,59 +1,22 @@
 package com.praktikum.main;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
-import com.praktikum.error.LoginException;
-import com.praktikum.data.Item;
+import com.praktikum.data.DataStore;
 import com.praktikum.users.Admin;
 import com.praktikum.users.Mahasiswa;
 import com.praktikum.users.User;
 
 public class LoginSystem {
-    public static List<User> userList = new ArrayList<>();
-    public static List<Item> reportedItems = new ArrayList<>();
-
-    public static void main(String[] args) {
-    userList.add(new Admin("Admin380", "Password380"));
-    userList.add(new Mahasiswa("Ramanda Bagus Prabowo", "202410370110380"));
-
-    Scanner scanner = new Scanner(System.in);
-    User loggedInUser = null;
-
-        System.out.println("========== System Login ==========");
-        while (loggedInUser == null) {
-            System.out.print("Masukkan Username/Nama : ");
-            String username = scanner.nextLine();
-            System.out.print("Masukkan Password/NIM : ");
-            String password = scanner.nextLine();
-
-            try {
-                loggedInUser = doLogin(username, password);
-
-                if (loggedInUser == null) {
-                    throw new LoginException("\nUser not found!");
-                }
-
-                System.out.println("Login berhasil!");
-
-                loggedInUser.displayInfo();
-                loggedInUser.displayAppMenu();
-            } catch (LoginException e) {
-                System.err.println(e.getMessage());
-                System.err.println("Silakan coba lagi.");
-            }
-        }
-
-        scanner.close();
-    }
+    public static User currentUser;
 
     public static User doLogin(String userInput, String passInput) {
-        for (User u : userList) {
-            if (u instanceof Admin admin) {
+        for (User u : DataStore.userList) {
+            if (u instanceof Admin) {
+                Admin admin = (Admin) u;
                 if (admin.getUsername().equals(userInput) && admin.getPassword().equals(passInput)) {
                     return admin;
                 }
-            } else if (u instanceof Mahasiswa mhs) {
+            } else if (u instanceof Mahasiswa) {
+                Mahasiswa mhs = (Mahasiswa) u;
                 if (mhs.getNama().equals(userInput) && mhs.getNim().equals(passInput)) {
                     return mhs;
                 }

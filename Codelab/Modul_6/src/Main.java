@@ -17,13 +17,13 @@ public class Main extends Application {
     private final Random rand = new Random();
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage stage) {
         generateNewNumber();
 
         Label titleLabel = new Label("🎯 Tebak Angka 1–100");
         titleLabel.setStyle("-fx-font-size: 25px; -fx-text-fill: navy;");
 
-        Label inputMessageLabel = new Label("Masukkan tebakan");
+        Label inputMessageLabel = new Label("Masukkan tebakan!");
         inputMessageLabel.setStyle("-fx-text-fill: gray; -fx-font-size: 15px;");
 
         TextField inputField = new TextField();
@@ -48,7 +48,7 @@ public class Main extends Application {
             if (actionButton.getText().equals("\uD83D\uDD04 Main Lagi")) {
                 generateNewNumber();
                 inputField.clear();
-                inputMessageLabel.setText("Masukkan tebakan");
+                inputMessageLabel.setText("Masukkan tebakan!");
                 inputMessageLabel.setStyle("-fx-text-fill: gray; -fx-font-size: 15px;");
                 attemptLabel.setText("Jumlah percobaan: 0");
                 actionButton.setText("\uD83C\uDFB2 Coba Tebak!");
@@ -78,9 +78,9 @@ public class Main extends Application {
         });
 
         Scene scene = new Scene(root, 400, 300);
-        primaryStage.setTitle("Tebak Angka Advance");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        stage.setTitle("Tebak Angka Advance");
+        stage.setScene(scene);
+        stage.show();
     }
 
     private void generateNewNumber() {
